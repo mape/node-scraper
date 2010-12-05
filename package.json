@@ -1,0 +1,14 @@
+{
+  "name" : "scraper",
+  "description" : "Easier web scraping using jQuery.",
+  "version" : "0.0.1",
+  "author" : "Mathias Pettersson <mape@mape.me>",
+  "engines" : ["node"],
+  "directories" : { "lib" : "./lib" },
+  "main" : "./lib/scraper",
+  "repository" : { "type":"git", "url":"https://github.com/mape/node-scraper.git" },
+  "dependencies" : {
+    "request" : ">=0.10.0",
+    "jsdom" : ">=0.1.20"
+  }
+}
