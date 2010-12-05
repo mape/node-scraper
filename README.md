@@ -37,3 +37,8 @@ First argument is an object containing settings for the "request" instance used 
             console.log($(this).text().trim()+'\n');
         });
     });
+
+## Depends on
+* [tmpvar](https://github.com/tmpvar/)'s [jsdom](https://github.com/tmpvar/jsdom)
+* [mikeal](https://github.com/mikeal/)'s [request](https://github.com/mikeal/node-utils/tree/master/request)
+* [jquery](https://github.com/jquery/jquery)
