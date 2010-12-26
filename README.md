@@ -35,7 +35,7 @@ Contains the info about what page/pages will be scraped
     ]
 
 ### Second (optional)
-The callback that allows you do use the data retrived from the fetch.
+The callback that allows you do use the data retrieved from the fetch.
 
     function(err, $, urlInfo) {
         if (err) {throw err;}
