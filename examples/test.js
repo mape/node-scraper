@@ -8,7 +8,7 @@ http.createServer(function (request, response) {
 			links += '<a href="/">Test - '+i+'</a>';
 		};
 		response.writeHead(200, {'Content-Type': 'text/plain'});
-		response.end('<html><body><div id="time">'+respondTime+'</div>'+links+'</body></html>\n');
+		response.end('<html><head><title>Page has '+linkCount+' links</title></head><body><div id="time">'+respondTime+'</div>'+links+'</body></html>\n');
 	}, respondTime);
 }).listen(8486);
 
@@ -26,7 +26,7 @@ setTimeout(function() {
 			console.log(err);
 			return;
 		}
-		console.log('Server took '+$('#time').text()+'ms to respond, found '+$('a').length+' <a> @ '+new Date().toString());
+		console.log('Server took '+$('#time').text()+'ms to respond, found '+$('a').length+' <a> @ '+new Date().toString()+' with title "'+$('title').text()+'"');
 	}, {
 		'reqPerSec': 0.5
 	});
