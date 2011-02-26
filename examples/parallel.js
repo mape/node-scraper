@@ -11,10 +11,9 @@ scraper([
 		}
 		, 'http://search.twitter.com/search?q=html5'
 	]
-	, function(err, $, urlInfo) {
+	, function(err, $) {
 	if (err) {throw err;}
 
-	console.log('Messages from: '+urlInfo.href);
 	$('.msg').each(function() {
 		console.log($(this).text().trim()+'\n');
 	});

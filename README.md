@@ -58,10 +58,9 @@ First argument is an array containing either strings or objects, second is a cal
             }
             , 'http://search.twitter.com/search?q=html5'
         ]
-        , function(err, $, urlInfo) {
+        , function(err, $) {
             if (err) {throw err;}
 
-            console.log('Messages from: '+urlInfo.href);
             $('.msg').each(function() {
                 console.log($(this).text().trim()+'\n');
             });
@@ -102,22 +101,9 @@ Contains the info about what page/pages will be scraped
 ### Second (optional)
 The callback that allows you do use the data retrieved from the fetch.
 
-    function(err, $, urlInfo) {
+    function(err, $) {
         if (err) {throw err;}
         
-        /* Showing the data within urlInfo: 
-        { href: 'http://search.twitter.com/search?q=javascript',
-          protocol: 'http:',
-          slashes: true,
-          host: 'search.twitter.com',
-          hostname: 'search.twitter.com',
-          search: '?q=javascript',
-          query: 'q=javascript',
-          pathname: '/search',
-          port: 80 }
-        */
-    
-        console.log('Messages from: '+urlInfo.href);
         $('.msg').each(function() {
             console.log($(this).text().trim()+'\n');
         }
