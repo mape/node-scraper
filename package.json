@@ -1,7 +1,7 @@
 {
   "name" : "scraper",
   "description" : "Easier web scraping using jQuery.",
-  "version" : "0.0.8",
+  "version" : "0.0.9",
   "author" : "Mathias Pettersson <mape@mape.me>",
   "engines" : ["node"],
   "directories" : { "lib" : "./lib" },
