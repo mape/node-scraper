@@ -9,6 +9,6 @@
   "repository" : { "type":"git", "url":"https://github.com/mape/node-scraper.git" },
   "dependencies" : {
     "request" : ">=0.10.0",
-    "jsdom" : ">=0.1.20"
+    "jsdom" : ">=0.2.3"
   }
 }
