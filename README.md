@@ -14,11 +14,11 @@ Via [npm](http://github.com/isaacs/npm):
 First argument is an url as a string, second is a callback which exposes a jQuery object with your scraped site as "body" and third is an object from the request containing info about the url.
 
     var scraper = require('scraper');
-    scraper('http://search.twitter.com/search?q=javascript', function(err, jQuery) {
+    scraper('http://www.wikipedia.org', function(err, jQuery) {
         if (err) {throw err}
-
-        jQuery('.msg').each(function() {
-            console.log(jQuery(this).text().trim()+'\n');
+    
+        jQuery('.central-featured a strong').each(function() {
+            console.log(jQuery(this).text().trim());
         });
     });
 ### "Advanced"
