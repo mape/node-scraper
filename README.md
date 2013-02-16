@@ -40,7 +40,9 @@ First argument is an object containing settings for the "request" instance used 
             });
         }
     );
+
 ### Parallel
+
 First argument is an array containing either strings or objects, second is a callback which exposes a jQuery object with your scraped site as "body" and third is an object from the request containing info about the url.
 
 **You can also add rate limiting to the fetcher by adding an options object as the third argument containing 'reqPerSec': float.**
@@ -58,9 +60,11 @@ First argument is an array containing either strings or objects, second is a cal
             }
             , 'http://search.twitter.com/search?q=html5'
         ]
-        , function(err, $) {
+        , function(err, $, requestOptions) {
             if (err) {throw err;}
 
+            console.log(requestOptions.uri);
+            
             $('.msg').each(function() {
                 console.log($(this).text().trim()+'\n');
             });

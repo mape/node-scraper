@@ -5,7 +5,7 @@ scraper({
 	, 'headers': {
 		'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
 	}}
-	, function(err, $) {
+	, function(err, $, requestOptions) {
 	if (err) {throw err;}
 
 	$('.msg').each(function() {

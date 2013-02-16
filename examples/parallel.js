@@ -11,7 +11,7 @@ scraper([
 		}
 		, 'http://search.twitter.com/search?q=html5'
 	]
-	, function(err, $) {
+	, function(err, $, requestOptions) {
 	if (err) {throw err;}
 
 	$('.msg').each(function() {
