@@ -10,67 +10,70 @@ Via [npm](http://github.com/isaacs/npm):
 
 ## Examples
 
+### Running examples
+
+    $ node ./examples/simple.js
+
 ### Simple
 First argument is an url as a string, second is a callback which exposes a jQuery object with your scraped site as "body" and third is an object from the request containing info about the url.
 
     var scraper = require('scraper');
-    scraper('http://search.twitter.com/search?q=javascript', function(err, jQuery) {
-        if (err) {throw err}
+    scraper('https://twitter.com/search?q=javascript', function(err, jQuery) {
+        if (err) {throw err;}
 
-        jQuery('.msg').each(function() {
+        jQuery('p.js-tweet-text.tweet-text').each(function() {
             console.log(jQuery(this).text().trim()+'\n');
         });
     });
+
 ### "Advanced"
 First argument is an object containing settings for the "request" instance used internally, second is a callback which exposes a jQuery object with your scraped site as "body" and third is an object from the request containing info about the url.
 
     var scraper = require('scraper');
     scraper(
-	    {
-           'uri': 'http://search.twitter.com/search?q=nodejs'
-               , 'headers': {
-                   'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
-               }
-        }
-        , function(err, $) {
-            if (err) {throw err}
+        {
+            'uri': 'https://twitter.com/search?q=nodejs',
+            'headers': {
+                'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
+            }
+        },
+        function(err, $) {
+            if (err) {throw err;}
 
-            $('.msg').each(function() {
+            $('p.js-tweet-text.tweet-text').each(function() {
                 console.log($(this).text().trim()+'\n');
             });
         }
     );
+
 ### Parallel
 First argument is an array containing either strings or objects, second is a callback which exposes a jQuery object with your scraped site as "body" and third is an object from the request containing info about the url.
 
 **You can also add rate limiting to the fetcher by adding an options object as the third argument containing 'reqPerSec': float.**
 
     var scraper = require('scraper');
-    scraper(
-	    [
-            'http://search.twitter.com/search?q=javascript'
-            , 'http://search.twitter.com/search?q=css'
-            , {
-                'uri': 'http://search.twitter.com/search?q=nodejs'
-                , 'headers': {
+    scraper([
+            'https://twitter.com/search?q=javascript',
+            'https://twitter.com/search?q=css',
+            {
+                'uri': 'https://twitter.com/search?q=nodejs',
+                'headers': {
                     'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
                 }
-            }
-            , 'http://search.twitter.com/search?q=html5'
-        ]
-        , function(err, $) {
+            },
+            'https://twitter.com/search?q=html5'
+        ],
+        function(err, $) {
             if (err) {throw err;}
 
-            $('.msg').each(function() {
+            $('p.js-tweet-text.tweet-text').each(function() {
                 console.log($(this).text().trim()+'\n');
             });
-        }
-        , {
+        },
+        {
             'reqPerSec': 0.2 // Wait 5sec between each external request
         }
     );
-
-
 
 ## Arguments
 
